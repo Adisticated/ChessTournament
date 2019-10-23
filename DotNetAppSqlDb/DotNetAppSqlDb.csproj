@@ -146,6 +146,14 @@
     <Compile Include="Migrations\201910231038089_AddProperty.Designer.cs">
       <DependentUpon>201910231038089_AddProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910231251449_AddProperty1.cs" />
+    <Compile Include="Migrations\201910231251449_AddProperty1.Designer.cs">
+      <DependentUpon>201910231251449_AddProperty1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910231309156_AddProperty2.cs" />
+    <Compile Include="Migrations\201910231309156_AddProperty2.Designer.cs">
+      <DependentUpon>201910231309156_AddProperty2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MyDatabaseContext.cs" />
     <Compile Include="Models\Todo.cs" />
@@ -156,6 +164,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\background.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -223,6 +232,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910231038089_AddProperty.resx">
       <DependentUpon>201910231038089_AddProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910231251449_AddProperty1.resx">
+      <DependentUpon>201910231251449_AddProperty1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910231309156_AddProperty2.resx">
+      <DependentUpon>201910231309156_AddProperty2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

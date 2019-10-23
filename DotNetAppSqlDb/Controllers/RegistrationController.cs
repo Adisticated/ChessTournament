@@ -10,21 +10,21 @@ using DotNetAppSqlDb.Models;using System.Diagnostics;
 
 namespace DotNetAppSqlDb.Controllers
 {
-    public class TodosController : Controller
+    public class RegistrationController : Controller
     {
         private MyDatabaseContext db = new MyDatabaseContext();
 
-        // GET: Todos
+        // GET: Registration
         public ActionResult Index()
         {            
-            Trace.WriteLine("GET /Todos/Index");
+            Trace.WriteLine("GET /Registration/Index");
             return View(db.Todoes.ToList());
         }
 
-        // GET: Todos/Details/5
+        // GET: Registration/Details/5
         public ActionResult Details(int? id)
         {
-            Trace.WriteLine("GET /Todos/Details/" + id);
+            Trace.WriteLine("GET /Registration/Details/" + id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -37,26 +37,23 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // GET: Todos/Create
+        // GET: Registration/Create
         public ActionResult Create()
         {
-            Trace.WriteLine("GET /Todos/Create");
+            Trace.WriteLine("GET /Registration/Create");
             return View(new Todo { CreatedDate = DateTime.Now });
         }
 
-        // POST: Todos/Create
+        // POST: Registration/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Name,CreatedDate,Password")] Todo todo)
         {
-            Trace.WriteLine("POST /Todos/Create");
+            Trace.WriteLine("POST /Registration/Create");
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrWhiteSpace(todo.Name) || 
-                    string.IsNullOrWhiteSpace(todo.Password)) 
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 db.Todoes.Add(todo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -65,10 +62,10 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // GET: Todos/Edit/5
+        // GET: Registration/Edit/5
         public ActionResult Edit(int? id)
         {
-            Trace.WriteLine("GET /Todos/Edit/" + id);
+            Trace.WriteLine("GET /Registration/Edit/" + id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,14 +78,14 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // POST: Todos/Edit/5
+        // POST: Registration/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,Name,CreatedDate,Password")] Todo todo)
         {
-            Trace.WriteLine("POST /Todos/Edit/" + todo.ID);
+            Trace.WriteLine("POST /Registration/Edit/" + todo.ID);
             Todo existingTodo = db.Todoes.Find(todo.ID);
             if (!existingTodo.Password.Equals(todo.Password))
             {
@@ -104,10 +101,10 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // GET: Todos/Delete/5
+        // GET: Registration/Delete/5
         public ActionResult Delete(int? id)
         {
-            Trace.WriteLine("GET /Todos/Delete/" + id);
+            Trace.WriteLine("GET /Registration/Delete/" + id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -120,17 +117,17 @@ namespace DotNetAppSqlDb.Controllers
             return View(todo);
         }
 
-        // POST: Todos/Delete/5
+        // POST: Registration/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed([Bind(Include = "ID,Password")]Todo todo1)
+        public ActionResult DeleteConfirmed(int id, string password)
         {
-            if (!db.Todoes.Find(todo1.ID).Password.Equals(todo1.Password))
+            if (!db.Todoes.Find(id).Password.Equals(password))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
-            Trace.WriteLine("POST /Todos/Delete/" + todo1.ID);
-            Todo todo = db.Todoes.Find(todo1.ID);
+            Trace.WriteLine("POST /Registration/Delete/" + id);
+            Todo todo = db.Todoes.Find(id);
             db.Todoes.Remove(todo);
             db.SaveChanges();
             return RedirectToAction("Index");
