@@ -4,38 +4,55 @@
     ViewBag.Title = "Index";
 }
     <div id="#Actual" style="background-image:url('/Content/Images/background.jpg');height:100vh;color:white">
-        <h2>List Of Participants</h2>
+        <h2>
+            List Of Participants
+        </h2>
 
-        <p>
-            @Html.ActionLink("Register Now ", "Create", null, new { @style = "font-size:24px;color:magenta" })
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedDate)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreatedDate)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @style = "color:magenta" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @style = "color:magenta" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @style = "color:magenta" })
-                    </td>
-                </tr>
-            }
-
-        </table>
+        <div style="display: flex; justify-content: center">
+            @Html.ActionLink("Register Now ", "Create", null, new { @style = "font-size:24px;color:aqua;" })
         </div>
+
+        <div id="table-wrapper" style="padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
+            <div style="height:30vh;overflow-y:scroll">
+                <table class="table" style="overflow:auto">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @style = "color:aqua" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @style = "color:aqua" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @style = "color:aqua" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+        <!---
+        <div id="#Actual" style="color:white;">
+            <h2>
+                Fixtures
+            </h2>
+            <div style="display: flex; justify-content: center">
+                <img src="/Content/Images/coming-soon.jpg" alt="Fixtures" style="height:30vh;width:30vh;" align="middle">
+            </div>
+        </div>
+        -->
+
+    </div>

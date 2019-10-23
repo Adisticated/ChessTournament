@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+    <div id="#Actual" style="background-image:url('/Content/Images/HomePage.jpeg');height:90vh;color:white;overflow:auto;">
+
+        <p style="text-align:center;padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
+            @Html.ActionLink("Participate Now", "Index", null, new { @style = "font-size:24px;color:aqua;text-algn:center;background-color:red" })
+        </p>
+
+        <h2 style="text-align:center;">Blitz Chess Tournament</h2>
+        <div style="background-color: black;opacity:0.5;padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;font-size:20px">
+            Blitz chess, also known as Speed Chess, is a single, time-controlled game of 1-10 minutes.
+            Playing Blitz chess creates a flurry of moves, as both players hustle to complete their
+            respective halves of a chess game, depending on which rule set they're playing under.
+            Other than the blazing-fast speed required to complete a full chess game in such little time,
+            the standard rules of movement, capture, and game ending apply.
+            <br />
+            <a target="_blank" href="https://blitz.chessbase.com/" style="background-color: yellow">Quick Practice Link (Select 3 minute game on top menu)</a>
+        </div>
+
+        <h2 style="text-align:center;">Rules</h2>
+        <div style="background-color: black;opacity:0.5;padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;font-size:20px">
+            <ul>
+                <li type="square">Each player gets 3min to play the game. No time increments.</li>
+                <li type="square">Normal Chess rules for moving the pieces apply. We will follow FIDE rules of chess.</li>
+                <li type="square">Castling and Pawn conversion come under FIDE rules and we will be supporting them, please look these up before.</li>
+                <li type="square">Time Management will be done by automated chess timers. The player who times out first looses.</li>
+                <li type="square">Fixtures will be updated by the organizers on this website.</li>
+                <li type="square">Choice between Online vs Physical medium will be decided by the organizers, after taking consensus of both players</li>
+                <li type="square">
+                    Supported online chess platforms are <a target="_blank" style="background-color:yellow" href="https://lichess.org/">Lichess.org</a>
+                    and <a target="_blank" style="background-color:yellow" href="https://chess.com/">Chess.com</a>
+                </li>
+                <li type="square">All game related contentions will be resolved only by the organizers.</li>
+            </ul>
+        </div>
+
+
+
+    </div>
