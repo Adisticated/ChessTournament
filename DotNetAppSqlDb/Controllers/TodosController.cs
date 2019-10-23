@@ -86,13 +86,15 @@ namespace DotNetAppSqlDb.Controllers
         public ActionResult Edit([Bind(Include = "id,Description,CreatedDate,Password")] Todo todo)
         {
             Trace.WriteLine("POST /Todos/Edit/" + todo.ID);
-            if(!db.Todoes.Find(todo.ID).Password.Equals(todo.Password))
+            Todo existingTodo = db.Todoes.Find(todo.ID);
+            if (!existingTodo.Password.Equals(todo.Password))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
             if (ModelState.IsValid)
             {
-                db.Entry(todo).State = EntityState.Modified;
+                db.Entry(existingTodo).CurrentValues.SetValues(todo);
+                db.Entry(existingTodo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
