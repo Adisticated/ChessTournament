@@ -3,9 +3,7 @@
 }
     <div id="#Actual" style="background-image:url('/Content/Images/HomePage.jpeg');height:90vh;color:white;overflow:auto;">
 
-        <p style="text-align:center;padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
-            @Html.ActionLink("Participate Now", "Index", null, new { @style = "font-size:24px;color:aqua;text-algn:center;background-color:red" })
-        </p>
+
 
         <h2 style="text-align:center;">Blitz Chess Tournament</h2>
         <div style="background-color: black;opacity:0.5;padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;font-size:20px">
@@ -18,6 +16,13 @@
             <a target="_blank" href="https://blitz.chessbase.com/" style="background-color: yellow">Quick Practice Link (Select 3 minute game on top menu)</a>
         </div>
 
+        <div style="display: flex; justify-content: center; padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
+        <input type="button"
+               value="Participate Now"
+               style="text-align:center;font-size:24px;color:white;text-align:center;background-color:black"
+               class="center-block"
+               onclick="location.href='@Url.Action("Index", "Todos")'"/>
+        </div>
         <h2 style="text-align:center;">Rules</h2>
         <div style="background-color: black;opacity:0.5;padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;font-size:20px">
             <ul>

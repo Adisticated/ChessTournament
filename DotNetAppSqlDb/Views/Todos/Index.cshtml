@@ -8,43 +8,58 @@
             List Of Participants
         </h2>
 
-        <div style="display: flex; justify-content: center">
-            @Html.ActionLink("Register Now ", "Create", null, new { @style = "font-size:24px;color:aqua;" })
+        <div style="display: flex; justify-content: space-around; padding:20px 20px 20px 20px;margin:20px 20px 20px 20px;">
+            <input type="button"
+                   value="Register Now"
+                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey"
+                   class="center-block"
+                   onclick="location.href='@Url.Action("Create", "Todos")'" />
+            <input type="button"
+                   value="Update Match Results"
+                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey"
+                   class="center-block"
+                   onclick="location.href='@Url.Action("Create", "Matches")'" />
+            <input type="button"
+                   value="Leaderboard"
+                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey"
+                   class="center-block"
+                   onclick="location.href='@Url.Action("Leaderboard", "Matches")'" />
         </div>
 
-        <div id="table-wrapper" style="padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
-            <div style="height:30vh;overflow-y:scroll">
-                <table class="table" style="overflow:auto">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.CreatedDate)
-                        </th>
-                        <th></th>
-                    </tr>
-                    @foreach (var item in Model)
-                    {
+            <div id="table-wrapper" style="padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
+                <div style="height:30vh;overflow-y:scroll">
+                    <table class="table" style="overflow:auto">
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CreatedDate)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @style = "color:aqua" }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @style = "color:aqua" }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @style = "color:aqua" })
-                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                            <th></th>
                         </tr>
-                    }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @style = "color:aqua" }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @style = "color:aqua" }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @style = "color:aqua" })
+                                </td>
+                            </tr>
+                        }
 
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-        <!---
+        
+    <!--
         <div id="#Actual" style="color:white;">
             <h2>
                 Fixtures
@@ -53,6 +68,6 @@
                 <img src="/Content/Images/coming-soon.jpg" alt="Fixtures" style="height:30vh;width:30vh;" align="middle">
             </div>
         </div>
-        -->
+    -->
 
-    </div>
+        </div>

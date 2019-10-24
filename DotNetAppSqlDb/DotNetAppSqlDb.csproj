@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MatchesController.cs" />
     <Compile Include="Controllers\TodosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -154,9 +155,21 @@
     <Compile Include="Migrations\201910231309156_AddProperty2.Designer.cs">
       <DependentUpon>201910231309156_AddProperty2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910241013542_AddProperty3.cs" />
+    <Compile Include="Migrations\201910241013542_AddProperty3.Designer.cs">
+      <DependentUpon>201910241013542_AddProperty3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910241018480_AddProperty4.cs" />
+    <Compile Include="Migrations\201910241018480_AddProperty4.Designer.cs">
+      <DependentUpon>201910241018480_AddProperty4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CreateMatchResultModel.cs" />
+    <Compile Include="Models\MatchDetailsModel.cs" />
+    <Compile Include="Models\Matches.cs" />
     <Compile Include="Models\MyDatabaseContext.cs" />
     <Compile Include="Models\Todo.cs" />
+    <Compile Include="Models\Winner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +233,9 @@
     <Content Include="Views\TodosDone\Edit.cshtml" />
     <Content Include="Views\TodosDone\Index.cshtml" />
     <Content Include="Views\Todos\Home.cshtml" />
+    <Content Include="Views\Matches\Create.cshtml" />
+    <Content Include="Views\Matches\Leaderboard.cshtml" />
+    <Content Include="Views\Matches\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -242,6 +258,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910231309156_AddProperty2.resx">
       <DependentUpon>201910231309156_AddProperty2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910241013542_AddProperty3.resx">
+      <DependentUpon>201910241013542_AddProperty3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910241018480_AddProperty4.resx">
+      <DependentUpon>201910241018480_AddProperty4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
