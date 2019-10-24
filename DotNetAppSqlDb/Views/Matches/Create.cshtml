@@ -1,0 +1,82 @@
+﻿@model DotNetAppSqlDb.Models.CreateMatchResultModel
+
+@{
+    ViewBag.Title = "Create Match Results";
+}
+        <h2>Create Match Result</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>It takes two to tango, you need to fill this along with your opponent. For the sake of common concensus, we need both party PWD</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div style="display: flex; align-content: center;padding:10px 10px 10px 10px;margin:10px 10px 10px 10px;">
+        @Html.LabelFor(model => model.PlayerOne, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="display: flex; align-content: center;">
+            @Html.DropDownListFor(model => model.PlayerOneID,
+                                    Model.playerSelectionList.Select(x => new SelectListItem()
+                                                                 {
+                                                                   Text = x.Name,
+                                                                   Value = x.ID + ""
+                                                                 }), "Select PlayerOne Name")
+        </div>
+    </div>
+
+    <div class="form-group" style="display: flex; align-content: center;padding:10px 10px 10px 10px;margin:10px 10px 10px 10px;">
+        @Html.LabelFor(model => model.PlayerOnePwd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="display: flex; align-content: center;">
+            @Html.PasswordFor(model => model.PlayerOnePwd, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+            @Html.ValidationMessageFor(model => model.PlayerOnePwd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div style="display: flex; align-content: center;padding:10px 10px 10px 10px;margin:10px 10px 10px 10px;">
+        @Html.LabelFor(model => model.PlayerTwo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="display: flex; align-content: center;">
+            @Html.DropDownListFor(model => model.PlayerTwoID,
+                                    Model.playerSelectionList.Select(x => new SelectListItem()
+                                                                 {
+                                                                   Text = x.Name,
+                                                                   Value = x.ID + ""
+                                                                 }), "Select PlayerTwo Name")
+        </div>
+    </div>
+
+    <div class="form-group" style="display: flex; align-content: center;padding:10px 10px 10px 10px;margin:10px 10px 10px 10px;">
+        @Html.LabelFor(model => model.PlayerTwoPwd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="display: flex; align-content: center;">
+            @Html.PasswordFor(model => model.PlayerTwoPwd, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+            @Html.ValidationMessageFor(model => model.PlayerTwoPwd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div style="display: flex; align-content: center;padding:10px 10px 10px 10px;margin:10px 10px 10px 10px;">
+        @Html.LabelFor(model => model.Winner, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="display: flex; align-content: center;">
+            @Html.DropDownListFor(model => model.WinnerID,
+                                    Model.playerSelectionList.Select(x => new SelectListItem()
+                                                                 {
+                                                                   Text = x.Name,
+                                                                   Value = x.ID + ""
+                                                                 }), "Select Winner Name")
+        </div>
+    </div>
+
+    <div class="form-group" style="display: flex; justify-content: space-around;">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
