@@ -1,1 +1,1 @@
-﻿DELETE FROM dbo.todoes
+﻿DELETE FROM dbo.Todoes

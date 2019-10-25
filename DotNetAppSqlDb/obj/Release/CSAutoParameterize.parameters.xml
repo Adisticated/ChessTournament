@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="MyDbConnection-Web.config Connection String" description="MyDbConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\MSSQLLocalDB; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|MyDatabaseContext-12.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\adprakas\\Source\\Repos\\ChessTournament\\DotNetAppSqlDb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MyDbConnection']/@connectionString" />
+  </parameter>
+  <parameter name="MyDbConnection_DatabasePublish-Web.config Connection String" description="MyDbConnection_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="MyDbConnection_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\adprakas\\Source\\Repos\\ChessTournament\\DotNetAppSqlDb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MyDbConnection_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

@@ -11,6 +11,9 @@ namespace DotNetAppSqlDb.Models
         [Required]
         public string Password { get; set; } 
 
+        [Required]
+        public string Email { get; set; }
+
         [Display(Name = "Created Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

@@ -7,12 +7,17 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DotNetAppSqlDb.Models;using System.Diagnostics;
+using DotNetAppSqlDb.Helpers.SendgridEmailServiceHelper;
+using System.Threading.Tasks;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace DotNetAppSqlDb.Controllers
 {
     public class TodosController : Controller
     {
         private MyDatabaseContext db = new MyDatabaseContext();
+        private IEmailSenderService emailSenderService = new EmailSenderService();
 
         // GET: Todos
         public ActionResult Home()
@@ -55,16 +60,19 @@ namespace DotNetAppSqlDb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,CreatedDate,Password")] Todo todo)
+        public async Task<ActionResult> Create([Bind(Include = "Name,CreatedDate,Password,Email")] Todo todo)
         {
             Trace.WriteLine("POST /Todos/Create");
             if (ModelState.IsValid)
             {
                 if (string.IsNullOrWhiteSpace(todo.Name) || 
-                    string.IsNullOrWhiteSpace(todo.Password)) 
+                    string.IsNullOrWhiteSpace(todo.Password) ||
+                    string.IsNullOrWhiteSpace(todo.Email)) 
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 db.Todoes.Add(todo);
                 db.SaveChanges();
+                await emailSenderService.SendRegistrationConfirmation(todo.Name, 
+                                            new EmailAddress(todo.Email));
                 return RedirectToAction("Index");
             }
 
@@ -92,7 +100,7 @@ namespace DotNetAppSqlDb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Name,CreatedDate,Password")] Todo todo)
+        public ActionResult Edit([Bind(Include = "id,Name,CreatedDate,Password,Email")] Todo todo)
         {
             Trace.WriteLine("POST /Todos/Edit/" + todo.ID);
             Todo existingTodo = db.Todoes.Find(todo.ID);
@@ -135,6 +143,13 @@ namespace DotNetAppSqlDb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
+
+            if(db.Matches.Where(x => (x.Player1Id == todo1.ID)
+                || (x.Player2Id == todo1.ID)).ToList().Count > 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             Trace.WriteLine("POST /Todos/Delete/" + todo1.ID);
             Todo todo = db.Todoes.Find(todo1.ID);
             db.Todoes.Remove(todo);
