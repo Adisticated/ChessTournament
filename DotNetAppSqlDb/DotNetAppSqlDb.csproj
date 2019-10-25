@@ -163,6 +163,10 @@
     <Compile Include="Migrations\201910241018480_AddProperty4.Designer.cs">
       <DependentUpon>201910241018480_AddProperty4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910241606134_AddProperty5.cs" />
+    <Compile Include="Migrations\201910241606134_AddProperty5.Designer.cs">
+      <DependentUpon>201910241606134_AddProperty5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CreateMatchResultModel.cs" />
     <Compile Include="Models\MatchDetailsModel.cs" />
@@ -264,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910241018480_AddProperty4.resx">
       <DependentUpon>201910241018480_AddProperty4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910241606134_AddProperty5.resx">
+      <DependentUpon>201910241606134_AddProperty5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

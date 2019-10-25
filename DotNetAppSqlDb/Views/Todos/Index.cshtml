@@ -4,29 +4,29 @@
     ViewBag.Title = "Index";
 }
     <div id="#Actual" style="background-image:url('/Content/Images/background.jpg');height:100vh;color:white">
-        <h2>
+        <h2 style="padding: 20px 20px 20px 20px;margin:20px 20px 20px 20px;">
             List Of Participants
         </h2>
 
-        <div style="display: flex; justify-content: space-around; padding:20px 20px 20px 20px;margin:20px 20px 20px 20px;">
+        <div style="display: flex; justify-content: left; padding:20px 20px 20px 20px;margin:20px 20px 20px 20px;overflow-x:auto">
             <input type="button"
                    value="Register Now"
-                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey"
+                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey;"
                    class="center-block"
                    onclick="location.href='@Url.Action("Create", "Todos")'" />
             <input type="button"
                    value="Update Match Results"
-                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey"
+                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey;"
                    class="center-block"
                    onclick="location.href='@Url.Action("Create", "Matches")'" />
             <input type="button"
                    value="Leaderboard"
-                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey"
+                   style="text-align:center;font-size:24px;color:white;text-align:center;background-color:grey;"
                    class="center-block"
                    onclick="location.href='@Url.Action("Leaderboard", "Matches")'" />
         </div>
 
-            <div id="table-wrapper" style="padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
+            <div id="table-wrapper" style="padding:20px 20px 20px 20px;margin:20px 20px 20px 20px;">
                 <div style="height:30vh;overflow-y:scroll">
                     <table class="table" style="overflow:auto">
                         <tr>

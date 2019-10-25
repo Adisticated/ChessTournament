@@ -6,10 +6,11 @@ namespace DotNetAppSqlDb.Models
 {
     public class Matches
     {
-        [Key, Column(Order =0)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int MatchId { get; set; }
         [Required]
         public int Player1Id { get; set; }
-        [Key, Column(Order = 1)]
         [Required]
         public int Player2Id { get; set; }
         [Required]
