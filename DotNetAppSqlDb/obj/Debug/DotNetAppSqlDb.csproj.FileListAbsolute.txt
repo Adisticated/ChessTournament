@@ -57,3 +57,4 @@ C:\Users\adprakas\Source\Repos\ChessTournament\DotNetAppSqlDb\bin\Microsoft.Exte
 C:\Users\adprakas\Source\Repos\ChessTournament\DotNetAppSqlDb\bin\Microsoft.Extensions.DependencyInjection.xml
 C:\Users\adprakas\Source\Repos\ChessTournament\DotNetAppSqlDb\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 C:\Users\adprakas\Source\Repos\ChessTournament\DotNetAppSqlDb\obj\Debug\DotNetAppSqlDb.Migrations.AddProperty6.resources
+C:\Users\adprakas\Source\Repos\ChessTournament\DotNetAppSqlDb\obj\Debug\DotNetAppSqlDb.csprojAssemblyReference.cache

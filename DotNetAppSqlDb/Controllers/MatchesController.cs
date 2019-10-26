@@ -82,6 +82,10 @@ namespace DotNetAppSqlDb.Controllers
                 || !match.PlayerTwoPwd.Equals(db.Todoes.Find(match.PlayerTwoID).Password)) 
                     return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
 
+            if(match.PlayerOneID == match.PlayerTwoID)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+
             if (!((match.WinnerID == match.PlayerOneID) 
                 || (match.WinnerID == match.PlayerTwoID)))
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

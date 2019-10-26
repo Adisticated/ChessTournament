@@ -26,6 +26,13 @@ namespace DotNetAppSqlDb.Controllers
             return View();
         }
 
+        public ActionResult Donate()
+        {
+            Trace.WriteLine("GET /Todos/Donate");
+            return View();
+        }
+
+
         public ActionResult Index()
         {            
             Trace.WriteLine("GET /Todos/Index");

@@ -12,16 +12,26 @@
             respective halves of a chess game, depending on which rule set they're playing under.
             Other than the blazing-fast speed required to complete a full chess game in such little time,
             the standard rules of movement, capture, and game ending apply.
-            
+
         </div>
 
-        <div style="display: flex; justify-content: center; padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;">
-        <input type="button"
-               value="Participate Now"
-               style="text-align:center;font-size:24px;color:white;text-align:center;background-color:black"
-               class="center-block"
-               onclick="location.href='@Url.Action("Index", "Todos")'"/>
+        <div class="btn-group" style="display:flex; justify-content: center;overflow-x:auto;align-items:center">
+            <div style="display:flex;">
+            <input type="button"
+                   value="Participate Now"
+                   style="text-align:center;font-size:24px;color:white;background-color:black;margin:10px 10px 10px 10px;"
+                   class="center-block"
+                   onclick="location.href='@Url.Action("Index", "Todos")'" />
+
+            <input type="button"
+                   value="Donate Now"
+                   style="text-align:center;font-size:24px;color:white;background-color:black;margin:10px 10px 10px 10px; padding:0px 20px 0px 20px"
+                   class="center-block"
+                   onclick="location.href='@Url.Action("Donate", "Todos")'" />
+                </div>
         </div>
+            
+
         <h2 style="text-align:center;">Rules</h2>
         <div style="background-color: black;opacity:0.5;padding:5px 20px 20px 20px;margin:5px 20px 20px 20px;font-size:20px">
             <ul>
